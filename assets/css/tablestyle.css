@@ -1,0 +1,53 @@
+.dataTables_wrapper {
+    width: 100%;
+    overflow: auto;
+}
+table.dataTable {
+    width: 100% !important;
+}
+.icon-circle {
+    display: inline-block;
+    width: 40px;  /* Adjust the size as needed */
+    height: 40px; /* Adjust the size as needed */
+    border: 2px solid black; /* Circle outline color */
+    border-radius: 50%; /* Makes it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[readonly] {
+    background-color: #e9ecef; /* Light grey background */
+    color: #6c757d; /* Darker grey text */
+}
+
+input[readonly]:focus {
+    background-color: #e9ecef; /* Keep grey background on focus */
+    outline: none; /* Remove outline if needed */
+}
+
+textarea.form-control[readonly] {
+    background-color: #e9ecef; /* Light grey */
+    color: #6c757d; /* Optional: darker text color */
+}
+
+/* Set a fixed height for the carousel images */
+.carousel-item img {
+    height: 400px; /* Set your desired height */
+    object-fit: cover; /* Scale the image to cover the set height and width */
+    width: 100%; /* Ensure the image takes up the full width */
+}
+.vision-mission h5 {
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.vision-mission p, .vision-mission ul {
+    margin-left: 15px;
+}
+
+.vision-mission ul {
+    list-style-type: disc;
+}
+
+
