@@ -12,7 +12,7 @@ include 'backend/laporan/santri/t_laporansantri.php';
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     
     <?php include 'content/head.php'; ?>

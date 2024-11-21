@@ -12,7 +12,7 @@ include 'backend/master/tingkatan/t_tingkatan.php';
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     
     <?php include 'content/head.php'; ?>

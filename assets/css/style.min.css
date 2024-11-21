@@ -16126,13 +16126,14 @@
    }
    body.auth main .auth-aside {
        grid-area: auth-aside;
+       background: var(--bs-body-bg);
        display: flex;
        align-items: center;
        justify-content: center;
    }
    body.auth main .auth-aside .login-img {
        filter: grayscale(100%);
-       max-width: 130%;
+       max-width: 100%;
    }
    @media (max-width: 991.98px) {
        body.auth main .auth-aside {
