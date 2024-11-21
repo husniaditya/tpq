@@ -32,7 +32,7 @@ include 'backend/login/t_login.php';
 	<main class="container-fluid px-0">
 
 		<!-- start: project logo -->
-		<div class="px-xl-5 px-4 auth-header" data-bs-theme="none">
+		<div class="px-xl-5 px-4 auth-header" data-bs-theme="light">
 			<a href="index.php" class="brand-icon text-decoration-none d-flex align-items-center" title="Judul">
 				<img src="assets/images/logo/logo.png" alt="Logo TPQ NURUL QALBI" class="me-2" style="height: 100px;">
 				<span class="fw-bold ps-2 fs-5">
@@ -47,7 +47,7 @@ include 'backend/login/t_login.php';
 
 
 		<!-- start: page menu link -->
-		<aside class="px-xl-5 px-4 auth-aside" data-bs-theme="none">
+		<aside class="px-xl-5 px-4 auth-aside" data-bs-theme="light">
 			<img class="login-img" src="assets/images/tpq/login_image2.jpg" alt="TPQ NURUL QALBI">
 		</aside>
 

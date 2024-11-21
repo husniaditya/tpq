@@ -25,22 +25,22 @@ include 'backend/transaksi/pendaftaran/t_pendaftaran.php';
 	<main class="container-fluid px-0">
 
 		<!-- start: project logo -->
-		<div class="px-md-4 px-2 pt-2 pb-2 brand" data-bs-theme="none">
+		<div class="px-md-4 px-2 pt-2 pb-2 brand" data-bs-theme="light">
 			<?php include 'content/sidebarlogo.php'; ?>
 		</div>
 
 		<!-- start: page header -->
-		<header class="px-md-4 px-2" data-bs-theme="none">
+		<header class="px-md-4 px-2" data-bs-theme="light">
 			<?php include 'content/header.php'; ?>
 		</header>
 
 		<!-- start: page menu link -->
-		<aside class="ps-4 pe-3 py-3 sidebar" data-bs-theme="none">
+		<aside class="ps-4 pe-3 py-3 sidebar" data-bs-theme="light">
 			<?php include 'content/sidebar.php'; ?>
 		</aside>
 
 		<!-- start: page header area -->
-		<div class="px-md-4 px-2 py-2 page-header" data-bs-theme="none">
+		<div class="px-md-4 px-2 py-2 page-header" data-bs-theme="light">
 
 			<div class="d-flex align-items-center">
 				<button class="btn d-none d-xl-inline-flex me-3 px-0 sidebar-toggle" type="button">
