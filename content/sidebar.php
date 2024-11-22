@@ -66,25 +66,29 @@
                             <span class="mx-2"><i class="fa fa-group"></i> Daftar Santri</span>
                         </a>
                     </li>
-                </ul>
-                <?php
-            }
-             ?>
-            <!-- start: Laporan -->
-             <?php
-            if ($_SESSION['LOGINAKS'] == 'Admin' || $_SESSION['LOGINAKS'] == 'Ketua DKM') {
-                ?>
-                <h6 class="fl-title title-font ps-2 small text-uppercase text-muted" style="--text-color: var(--theme-color4)">Laporan</h6>
-                <ul class="list-unstyled mb-4 menu-list">
                     <li>
-                        <a href="laporansantri.php" aria-label="documentation">
-                            <span class="mx-2"><i class="fa fa-file-excel-o"></i> Laporan Santri</span>
+                        <a href="iuran.php" aria-label="Toast editor">
+                            <span class="mx-2"><i class="fa fa-briefcase"></i> Iuran</span>
                         </a>
                     </li>
                 </ul>
                 <?php
             }
              ?>
+            <!-- start: Laporan -->
+            <h6 class="fl-title title-font ps-2 small text-uppercase text-muted" style="--text-color: var(--theme-color4)">Laporan</h6>
+            <ul class="list-unstyled mb-4 menu-list">
+                <li>
+                    <a href="laporansantri.php" aria-label="documentation">
+                        <span class="mx-2"><i class="fa fa-file-excel-o"></i> Laporan Santri</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="laporaniuran.php" aria-label="documentation">
+                        <span class="mx-2"><i class="fa fa-file-excel-o"></i> Laporan Iuran</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
