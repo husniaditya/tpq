@@ -15,11 +15,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for andre
-CREATE DATABASE IF NOT EXISTS `andre` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `andre`;
+-- Dumping database structure for tpq
+CREATE DATABASE IF NOT EXISTS `tpq` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `tpq`;
 
--- Dumping structure for table andre.m_tingkatan
+-- Dumping structure for table tpq.m_tingkatan
 DROP TABLE IF EXISTS `m_tingkatan`;
 CREATE TABLE IF NOT EXISTS `m_tingkatan` (
   `ID_TINGKATAN` varchar(50) NOT NULL,
@@ -31,12 +31,12 @@ CREATE TABLE IF NOT EXISTS `m_tingkatan` (
   PRIMARY KEY (`ID_TINGKATAN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table andre.m_tingkatan: ~3 rows (approximately)
+-- Dumping data for table tpq.m_tingkatan: ~3 rows (approximately)
 REPLACE INTO `m_tingkatan` (`ID_TINGKATAN`, `NAMA_TINGKATAN`, `DESKRIPSI`, `STATUS`, `INPUT_OLEH`, `INPUT_TANGGAL`) VALUES
 	('TKT-202411-001', 'IQRO\'', '', '1', 'husniaditya', '2024-11-14 19:57:59'),
 	('TKT-202411-002', 'Al-Quran', '', '1', 'husniaditya', '2024-11-14 10:39:05');
 
--- Dumping structure for table andre.m_user
+-- Dumping structure for table tpq.m_user
 DROP TABLE IF EXISTS `m_user`;
 CREATE TABLE IF NOT EXISTS `m_user` (
   `ID_USER` varchar(50) NOT NULL,
@@ -53,13 +53,13 @@ CREATE TABLE IF NOT EXISTS `m_user` (
   KEY `EMAIL` (`EMAIL`(768))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table andre.m_user: ~3 rows (approximately)
+-- Dumping data for table tpq.m_user: ~3 rows (approximately)
 REPLACE INTO `m_user` (`ID_USER`, `USERNAME`, `USER_PASSWORD`, `NAMA`, `EMAIL`, `AKSES`, `STATUS`, `INPUT_OLEH`, `INPUT_TANGGAL`) VALUES
 	('USR-202411-001', 'husniaditya', '$2y$12$NMxDXU77/MPLgD44nkvdB.jPdB.n5kJLWcYGe8lxBoBiGyk/Jeysu', 'Husni Aditya A', 'husni.aditya@mail.com', 'Admin', '1', 'husniaditya', '2024-11-15 19:30:06'),
 	('USR-202411-002', 'Andre', '$2y$12$3j9NS4hYuNv/yNl7DAYEFe6i.lZFhf4It8Stgz7ce0v.F2tG/4h1y', 'Andri Sugianto', 'andri.sugianto@mail.com', 'Admin', '1', 'husniaditya', '2024-11-16 09:10:55'),
 	('USR-202411-003', 'Muhammad_amin', '$2y$12$PV4YszQstka2TQNqXfzOQOqd3hjPqbpkTnvxKilxgN5xwwzXuYV9i', 'Ustadz Muhammad Amin', 'nurulqalbi@mail.com', 'Ustadz/Asatidz', '1', 'husniaditya', '2024-11-18 20:25:37');
 
--- Dumping structure for table andre.t_anggota
+-- Dumping structure for table tpq.t_anggota
 DROP TABLE IF EXISTS `t_anggota`;
 CREATE TABLE IF NOT EXISTS `t_anggota` (
   `ID_ANGGOTA` varchar(50) NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `t_anggota` (
   KEY `ID_TINGKATAN` (`ID_TINGKATAN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table andre.t_anggota: ~66 rows (approximately)
+-- Dumping data for table tpq.t_anggota: ~66 rows (approximately)
 REPLACE INTO `t_anggota` (`ID_ANGGOTA`, `ID_TINGKATAN`, `NAMA_ANGGOTA`, `ALAMAT`, `TEMPAT_LAHIR`, `TANGGAL_LAHIR`, `JK`, `ORANG_TUA`, `PEKERJAAN`, `DEPARTEMEN`, `HANDPHONE`, `TANGGAL_BERGABUNG`, `TANGGAL_KELUAR`, `STATUS_ANGGOTA`, `STATUS`, `INPUT_OLEH`, `INPUT_TANGGAL`) VALUES
 	('TPQ-202411-001', 'TKT-202411-001', 'Haviz Dwi Handoko', 'Perumahan IC Complex No.52', 'Cilacap', '2010-10-13', 'L', 'Dartoyo', 'Driver', 'PT.MS1', '087702739xxx', '2024-11-14', NULL, '1', '1', 'husniaditya', '2024-11-15 15:02:42'),
 	('TPQ-202411-002', 'TKT-202411-001', 'Syafa Andika Putra Pratama', 'Perumahan IC Complex No.26', 'Blitar', NULL, 'L', 'Ahmad Alfianur', 'Driver', 'EMU', '082149095454', '2024-11-14', NULL, '1', '1', 'upload', '2024-11-14 00:00:00'),
@@ -153,26 +153,32 @@ REPLACE INTO `t_anggota` (`ID_ANGGOTA`, `ID_TINGKATAN`, `NAMA_ANGGOTA`, `ALAMAT`
 	('TPQ-202411-066', 'TKT-202411-001', 'Zhafira', '', '', NULL, 'P', 'Ilman', 'Staff', 'PT.MS1', '', '2024-11-14', NULL, '1', '1', 'upload', '2024-11-14 00:00:00'),
 	('TPQ-202411-067', 'TKT-202411-001', 'Ibrahim', 'perumah staff PT.MS1 E96', 'KOTIM', '2019-02-09', 'L', 'Andri Sugianto', 'Swasta', 'Sustainability', '082255525282', '2023-12-28', NULL, '1', '1', 'husniaditya', '2024-11-18 20:31:51');
 
--- Dumping structure for table andre.t_iuran
+-- Dumping structure for table tpq.t_iuran
 DROP TABLE IF EXISTS `t_iuran`;
 CREATE TABLE IF NOT EXISTS `t_iuran` (
   `ID_IURAN` varchar(50) NOT NULL,
   `ID_ANGGOTA` varchar(50) DEFAULT NULL,
   `TGL_IURAN` date DEFAULT NULL,
-  `JENIS_IURAN` varchar(50) DEFAULT NULL,
   `DK` varchar(50) DEFAULT NULL,
   `JUMLAH` int(11) DEFAULT NULL,
   `KETERANGAN` varchar(200) DEFAULT NULL,
-  `STATUS` varchar(50) DEFAULT NULL,
+  `STATUS` varchar(50) DEFAULT '1',
   `INPUT_OLEH` varchar(50) DEFAULT NULL,
-  `INPUT_BY` datetime DEFAULT NULL,
+  `INPUT_TANGGAL` datetime DEFAULT NULL,
   PRIMARY KEY (`ID_IURAN`),
   KEY `ID_ANGGOTA` (`ID_ANGGOTA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table andre.t_iuran: ~1 rows (approximately)
-REPLACE INTO `t_iuran` (`ID_IURAN`, `ID_ANGGOTA`, `TGL_IURAN`, `JENIS_IURAN`, `DK`, `JUMLAH`, `KETERANGAN`, `STATUS`, `INPUT_OLEH`, `INPUT_BY`) VALUES
-	('IUR-202411-001', NULL, '2024-11-21', 'Wajib', 'K', -50000, NULL, NULL, NULL, '2024-11-21 19:32:14');
+-- Dumping data for table tpq.t_iuran: ~6 rows (approximately)
+REPLACE INTO `t_iuran` (`ID_IURAN`, `ID_ANGGOTA`, `TGL_IURAN`, `DK`, `JUMLAH`, `KETERANGAN`, `STATUS`, `INPUT_OLEH`, `INPUT_TANGGAL`) VALUES
+	('IUR-202411-001', 'TPQ-202411-011', '2024-11-21', 'K', -50000, '  ', '1', 'husniaditya', '2024-11-22 13:09:40'),
+	('IUR-202411-002', 'TPQ-202411-012', '2024-11-21', 'D', 50000, NULL, '0', 'husniaditya', '2024-11-21 19:32:14'),
+	('IUR-202411-003', 'TPQ-202411-011', '2024-11-22', 'D', 50000, NULL, '1', 'husniaditya', '2024-11-21 19:32:14'),
+	('IUR-202411-004', 'TPQ-202411-012', '2024-11-21', 'D', 50000, NULL, '1', 'husniaditya', '2024-11-21 19:32:14'),
+	('IUR-202411-005', 'TPQ-202411-063', '2024-11-22', 'D', 50000, 'iuran bulanan', '1', 'husniaditya', '2024-11-22 12:51:19'),
+	('IUR-202411-006', 'TPQ-202411-061', '2024-11-22', 'K', -50000, '', '1', 'husniaditya', '2024-11-22 12:54:46'),
+	('IUR-202411-007', 'TPQ-202411-011', '2024-11-22', 'D', 50000, '', '1', 'husniaditya', '2024-11-22 13:24:40'),
+	('IUR-202411-008', 'TPQ-202411-020', '2024-11-22', 'D', 50000, '', '1', 'husniaditya', '2024-11-22 13:25:46');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
