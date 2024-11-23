@@ -2,7 +2,7 @@
 
 <div class="card mb-4">
     <div class="card-header py-3 bg-transparent border-bottom-0">
-        <h4 class="card-title mb-0"><strong>Laporan Santri</strong></h4>
+        <h4 class="card-title mb-0"><strong>Laporan Iuran Santri</strong></h4>
     </div>
     <div class="card-body card-main-two">
         <form role="form" action="" method="post">
@@ -76,6 +76,13 @@
                     }
                     ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" style="text-align: right;"><strong>Total Saldo:</strong></td>
+                        <td style="text-align: right;"><strong>Rp <?= $TOTAL_SALDO; ?></strong></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
