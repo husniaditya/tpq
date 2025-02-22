@@ -47,6 +47,7 @@
                         <option value="Admin" <?php if ($AKSES == 'Admin') echo 'selected'; ?>>Admin</option>
                         <option value="Ustadz/Asatidz" <?php if ($AKSES == 'Ustadz/Asatidz') echo 'selected'; ?>>Ustadz/Asatidz</option>
                         <option value="Ketua DKM" <?php if ($AKSES == 'Ketua DKM') echo 'selected'; ?>>Ketua DKM</option>
+                        <option value="Wali"><?php if ($AKSES == 'Wali') echo 'selected'; ?>>Wali</option>
                     </select>
                 </div>
             </div>

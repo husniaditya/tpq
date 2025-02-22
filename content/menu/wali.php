@@ -29,15 +29,6 @@
                 </li>
                 
             </ul>
-            <!-- start: Transaksi -->
-            <h6 class="fl-title title-font ps-2 small text-uppercase text-muted" style="--text-color: var(--theme-color3)">Transaksi</h6>
-            <ul class="list-unstyled mb-4 menu-list">
-                <li>
-                    <a href="pendaftaran.php" aria-label="Toast editor">
-                        <span class="mx-2"><i class="fa fa-group"></i> Daftar Santri</span>
-                    </a>
-                </li>
-            </ul>
             <!-- start: Laporan -->
             <h6 class="fl-title title-font ps-2 small text-uppercase text-muted" style="--text-color: var(--theme-color4)">Laporan</h6>
             <ul class="list-unstyled mb-4 menu-list">

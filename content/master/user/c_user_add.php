@@ -39,6 +39,7 @@
                         <option value="Admin">Admin</option>
                         <option value="Ustadz/Asatidz">Ustadz/Asatidz</option>
                         <option value="Ketua DKM">Ketua DKM</option>
+                        <option value="Wali">Wali</option>
                     </select>
                 </div>
             </div>
