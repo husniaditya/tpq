@@ -11,11 +11,11 @@
                     <input type="text" name="NAMA_ANGGOTA" class="form-control" value="<?= $NAMA_ANGGOTA; ?>" readonly>
                 </div>
                 <div class="mb-3 col-md-3 col-12">
-                    <label class="col-form-label">Tingkatan</label>
+                    <label class="col-form-label">Pendidikan</label>
                     <input type="text" name="NAMA_ANGGOTA" class="form-control" value="<?= $NAMA_TINGKATAN; ?>" readonly>
                 </div>
                 <div class="mb-1 col-md-3 col-12">
-                    <label class="col-form-label">Tanggal Bergabung</label>
+                    <label class="col-form-label">Tanggal Pendaftaran</label>
                     <input type="text" name="TANGGAL_BERGABUNG" class="form-control" value="<?= $TANGGAL_BERGABUNG; ?>" readonly>
                 </div>
                 <div class="mb-3 col-md-3 col-12">

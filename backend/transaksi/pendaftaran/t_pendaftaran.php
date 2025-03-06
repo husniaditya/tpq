@@ -18,7 +18,6 @@ if (isset($_GET['method'])) {
             $ID_ANGGOTA = createKode("t_anggota", "ID_ANGGOTA", "TPQ", 3);
             $ID_TINGKATAN = $_POST['ID_TINGKATAN'];
             $NAMA_ANGGOTA = $_POST['NAMA_ANGGOTA'];
-            $TANGGAL_BERGABUNG = $_POST['TANGGAL_BERGABUNG'];
             $TEMPAT_LAHIR = $_POST['TEMPAT_LAHIR'];
             $TANGGAL_LAHIR = $_POST['TANGGAL_LAHIR'];
             $JK = $_POST['JK'];
@@ -29,9 +28,9 @@ if (isset($_GET['method'])) {
             $HANDPHONE = $_POST['HANDPHONE'];
 
             $query = "INSERT INTO t_anggota 
-              (ID_ANGGOTA, ID_TINGKATAN, NAMA_ANGGOTA, ALAMAT, TEMPAT_LAHIR, TANGGAL_LAHIR, JK, ORANG_TUA, PEKERJAAN, DEPARTEMEN, HANDPHONE, TANGGAL_BERGABUNG, STATUS_ANGGOTA, STATUS, INPUT_OLEH, INPUT_TANGGAL) 
+              (KEY_ANGGOTA,ID_ANGGOTA, ID_TINGKATAN, NAMA_ANGGOTA, ALAMAT, TEMPAT_LAHIR, TANGGAL_LAHIR, JK, ORANG_TUA, PEKERJAAN, DEPARTEMEN, HANDPHONE, TANGGAL_BERGABUNG, TANGGAL_TINGKATAN, STATUS_ANGGOTA, STATUS, INPUT_OLEH, INPUT_TANGGAL) 
               VALUES 
-              (:ID_ANGGOTA, :ID_TINGKATAN, :NAMA_ANGGOTA, :ALAMAT, :TEMPAT_LAHIR, :TANGGAL_LAHIR, :JK, :ORANG_TUA, :PEKERJAAN, :DEPARTEMEN, :HANDPHONE, :TANGGAL_BERGABUNG, 1, 1, :INPUT_OLEH, NOW())";
+              (UUID(),:ID_ANGGOTA, :ID_TINGKATAN, :NAMA_ANGGOTA, :ALAMAT, :TEMPAT_LAHIR, :TANGGAL_LAHIR, :JK, :ORANG_TUA, :PEKERJAAN, :DEPARTEMEN, :HANDPHONE, NOW(), NOW(), 1, 1, :INPUT_OLEH, NOW())";
 
             // Set up the parameters array with named placeholders
             $params = array(
@@ -46,7 +45,6 @@ if (isset($_GET['method'])) {
                 ':PEKERJAAN' => $PEKERJAAN,
                 ':DEPARTEMEN' => $DEPARTEMEN,
                 ':HANDPHONE' => $HANDPHONE,
-                ':TANGGAL_BERGABUNG' => $TANGGAL_BERGABUNG,
                 ':INPUT_OLEH' => $ID_USER
             );
 
@@ -80,7 +78,6 @@ if (isset($_GET['method'])) {
         if (isset($_POST['simpan'])) {
             $ID_TINGKATAN = $_POST['ID_TINGKATAN'];
             $NAMA_ANGGOTA = $_POST['NAMA_ANGGOTA'];
-            $TANGGAL_BERGABUNG = $_POST['TANGGAL_BERGABUNG'];
             $TEMPAT_LAHIR = $_POST['TEMPAT_LAHIR'];
             $TANGGAL_LAHIR = $_POST['TANGGAL_LAHIR'];
             $JK = $_POST['JK'];
@@ -89,29 +86,58 @@ if (isset($_GET['method'])) {
             $DEPARTEMEN = $_POST['DEPARTEMEN'];
             $ALAMAT = $_POST['ALAMAT'];
             $HANDPHONE = $_POST['HANDPHONE'];
+            $TANGGAL_BERGABUNG = $_POST['TANGGAL_BERGABUNG'];
             $STATUS_ANGGOTA = $_POST['STATUS_ANGGOTA'];
-            $TANGGAL_KELUAR = $_POST['TANGGAL_KELUAR'];
+            $TANGGAL_KELUAR = !empty($_POST['TANGGAL_KELUAR']) ? $_POST['TANGGAL_KELUAR'] : NULL;
 
-            // Update Query
-            $query = "UPDATE t_anggota SET ID_TINGKATAN = :ID_TINGKATAN, NAMA_ANGGOTA = :NAMA_ANGGOTA, ALAMAT = :ALAMAT, TEMPAT_LAHIR = :TEMPAT_LAHIR, TANGGAL_LAHIR = :TANGGAL_LAHIR, JK = :JK, ORANG_TUA = :ORANG_TUA, PEKERJAAN = :PEKERJAAN, DEPARTEMEN = :DEPARTEMEN, HANDPHONE = :HANDPHONE, TANGGAL_BERGABUNG = :TANGGAL_BERGABUNG, STATUS_ANGGOTA = :STATUS_ANGGOTA, TANGGAL_KELUAR = :TANGGAL_KELUAR, INPUT_OLEH = :INPUT_OLEH, INPUT_TANGGAL = NOW() WHERE ID_ANGGOTA = :ID_ANGGOTA";
-            $params = array(
-                ':ID_ANGGOTA' => $ID_ANGGOTA,
-                ':ID_TINGKATAN' => $ID_TINGKATAN,
-                ':NAMA_ANGGOTA' => $NAMA_ANGGOTA,
-                ':ALAMAT' => $ALAMAT,
-                ':TEMPAT_LAHIR' => $TEMPAT_LAHIR,
-                ':TANGGAL_LAHIR' => $TANGGAL_LAHIR,
-                ':JK' => $JK,
-                ':ORANG_TUA' => $ORANG_TUA,
-                ':PEKERJAAN' => $PEKERJAAN,
-                ':DEPARTEMEN' => $DEPARTEMEN,
-                ':HANDPHONE' => $HANDPHONE,
-                ':TANGGAL_BERGABUNG' => $TANGGAL_BERGABUNG,
-                ':STATUS_ANGGOTA' => $STATUS_ANGGOTA,
-                ':TANGGAL_KELUAR' => $TANGGAL_KELUAR,
-                ':INPUT_OLEH' => $ID_USER
-            );
-            $editTingkatan = GetQuery2($query, $params);
+            // IF UPDATE ANGGOTA
+            if ($ID_TINGKATAN != $EDIT_TINGKATAN) {
+                $setNonAktif = "UPDATE t_anggota SET STATUS_ANGGOTA = 0, STATUS = 0 WHERE ID_ANGGOTA = :ID_ANGGOTA";
+                $paramsNonAktif = array(':ID_ANGGOTA' => $ID_ANGGOTA);
+
+                $query = "INSERT INTO t_anggota (KEY_ANGGOTA,ID_ANGGOTA, ID_TINGKATAN, NAMA_ANGGOTA, ALAMAT, TEMPAT_LAHIR, TANGGAL_LAHIR, JK, ORANG_TUA, PEKERJAAN, DEPARTEMEN, HANDPHONE, TANGGAL_BERGABUNG, TANGGAL_TINGKATAN, STATUS_ANGGOTA, STATUS, INPUT_OLEH, INPUT_TANGGAL) VALUES (UUID(), :ID_ANGGOTA, :ID_TINGKATAN, :NAMA_ANGGOTA, :ALAMAT, :TEMPAT_LAHIR, :TANGGAL_LAHIR, :JK, :ORANG_TUA, :PEKERJAAN, :DEPARTEMEN, :HANDPHONE, :TANGGAL_BERGABUNG, NOW(), :STATUS_ANGGOTA, 1, :INPUT_OLEH, NOW())";
+                $params = array(
+                    ':ID_ANGGOTA' => $ID_ANGGOTA,
+                    ':ID_TINGKATAN' => $ID_TINGKATAN,
+                    ':NAMA_ANGGOTA' => $NAMA_ANGGOTA,
+                    ':ALAMAT' => $ALAMAT,
+                    ':TEMPAT_LAHIR' => $TEMPAT_LAHIR,
+                    ':TANGGAL_LAHIR' => $TANGGAL_LAHIR,
+                    ':JK' => $JK,
+                    ':ORANG_TUA' => $ORANG_TUA,
+                    ':PEKERJAAN' => $PEKERJAAN,
+                    ':DEPARTEMEN' => $DEPARTEMEN,
+                    ':HANDPHONE' => $HANDPHONE,
+                    ':TANGGAL_BERGABUNG' => $TANGGAL_BERGABUNG,
+                    ':STATUS_ANGGOTA' => $STATUS_ANGGOTA,
+                    ':INPUT_OLEH' => $ID_USER
+                );
+                $setNonAktif = GetQuery2($setNonAktif, $paramsNonAktif);
+                $editTingkatan = GetQuery2($query, $params);
+                
+
+            } else {
+                // Update Query
+                $query = "UPDATE t_anggota SET ID_TINGKATAN = :ID_TINGKATAN, NAMA_ANGGOTA = :NAMA_ANGGOTA, ALAMAT = :ALAMAT, TEMPAT_LAHIR = :TEMPAT_LAHIR, TANGGAL_LAHIR = :TANGGAL_LAHIR, JK = :JK, ORANG_TUA = :ORANG_TUA, PEKERJAAN = :PEKERJAAN, DEPARTEMEN = :DEPARTEMEN, HANDPHONE = :HANDPHONE, STATUS_ANGGOTA = :STATUS_ANGGOTA, TANGGAL_KELUAR = :TANGGAL_KELUAR, INPUT_OLEH = :INPUT_OLEH, INPUT_TANGGAL = NOW() WHERE ID_ANGGOTA = :ID_ANGGOTA AND STATUS = 1";
+                $params = array(
+                    ':ID_ANGGOTA' => $ID_ANGGOTA,
+                    ':ID_TINGKATAN' => $ID_TINGKATAN,
+                    ':NAMA_ANGGOTA' => $NAMA_ANGGOTA,
+                    ':ALAMAT' => $ALAMAT,
+                    ':TEMPAT_LAHIR' => $TEMPAT_LAHIR,
+                    ':TANGGAL_LAHIR' => $TANGGAL_LAHIR,
+                    ':JK' => $JK,
+                    ':ORANG_TUA' => $ORANG_TUA,
+                    ':PEKERJAAN' => $PEKERJAAN,
+                    ':DEPARTEMEN' => $DEPARTEMEN,
+                    ':HANDPHONE' => $HANDPHONE,
+                    ':STATUS_ANGGOTA' => $STATUS_ANGGOTA,
+                    ':TANGGAL_KELUAR' => $TANGGAL_KELUAR,
+                    ':INPUT_OLEH' => $ID_USER
+                );
+            
+                $editTingkatan = GetQuery2($query, $params);
+            }
 
             // Check if the query executed successfully
             if ($editTingkatan->rowCount() > 0) {

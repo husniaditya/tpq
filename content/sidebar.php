@@ -2,7 +2,7 @@
 if ($_SESSION['LOGINAKS'] == 'Admin') {
     include 'menu/admin.php';
 }
-if ($_SESSION['LOGINAKS'] == 'Uztadz/Asatidz') {
+if ($_SESSION['LOGINAKS'] == 'Ustadz/Asatidz') {
     include 'menu/ustadz.php';
 }
 if ($_SESSION['LOGINAKS'] == 'Ketua DKM') {

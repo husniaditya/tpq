@@ -12,7 +12,7 @@ if (isset($_POST['cari'])) {
     $DK = $_POST['DK'];
     $TGL_IURAN = $_POST['TGL_IURAN'];
 
-    $query = "SELECT i.*,a.NAMA_ANGGOTA, t.NAMA_TINGKATAN,FORMAT(REPLACE(i.JUMLAH,'-',''), 0) FJUMLAH,
+    $query = "SELECT i.*,a.NAMA_ANGGOTA, t.NAMA_TINGKATAN,FORMAT(REPLACE(i.JUMLAH,'-',''), 0) FJUMLAH,DATE_FORMAT(i.TGL_IURAN, '%Y-%m') as TGL_IURAN,
             -- Subquery to get the cumulative saldo
             (SELECT CASE
                 WHEN SUM(i2.JUMLAH) < 0 THEN CONCAT('(', FORMAT(ABS(SUM(i2.JUMLAH)), 0), ')')
@@ -27,7 +27,7 @@ if (isset($_POST['cari'])) {
                 ELSE 'Kredit' 
             END AS IURAN_DK,
             CASE
-                WHEN i.DK = 'D' THEN 'color: green;'
+                WHEN i.DK = '' THEN 'color: green;'
                 ELSE 'color: red;' 
             END AS IURAN_COLOR,
             (SELECT CASE
@@ -38,7 +38,7 @@ if (isset($_POST['cari'])) {
                 left join t_anggota a on a.ID_ANGGOTA = i.ID_ANGGOTA
                 WHERE i.STATUS = 1 AND i.ID_IURAN LIKE :ID_IURAN AND a.NAMA_ANGGOTA LIKE :NAMA_ANGGOTA AND i.DK LIKE :DK AND i.TGL_IURAN LIKE :TGL_IURAN) AS TOTAL_SALDO
         FROM t_iuran i
-        LEFT JOIN t_anggota a ON a.ID_ANGGOTA = i.ID_ANGGOTA
+        LEFT JOIN t_anggota a ON a.ID_ANGGOTA = i.ID_ANGGOTA AND a.STATUS = 1
         LEFT JOIN m_tingkatan t ON a.ID_TINGKATAN = t.ID_TINGKATAN
         WHERE i.STATUS = 1 AND i.ID_IURAN LIKE :ID_IURAN AND a.NAMA_ANGGOTA LIKE :NAMA_ANGGOTA AND i.DK LIKE :DK AND i.TGL_IURAN LIKE :TGL_IURAN";
     // Set up the parameters array with named placeholders
@@ -53,7 +53,7 @@ if (isset($_POST['cari'])) {
     $rowIuran = $getIuran->fetchAll(PDO::FETCH_ASSOC);
 
 } else {
-    $query = "SELECT i.*,a.NAMA_ANGGOTA, t.NAMA_TINGKATAN, 
+    $query = "SELECT i.*,a.NAMA_ANGGOTA, t.NAMA_TINGKATAN, DATE_FORMAT(i.TGL_IURAN, '%Y-%m') as TGL_IURAN,
                 FORMAT(REPLACE(i.JUMLAH, '-', ''), 0) FJUMLAH,
                 (SELECT CASE
                     WHEN SUM(i2.JUMLAH) < 0 THEN CONCAT('(', FORMAT(ABS(SUM(i2.JUMLAH)), 0), ')')
@@ -68,7 +68,7 @@ if (isset($_POST['cari'])) {
                     ELSE 'Kredit' 
                 END AS IURAN_DK,
                 CASE
-                    WHEN i.DK = 'D' THEN 'color: green;'
+                    WHEN i.DK = '' THEN 'color: green;'
                     ELSE 'color: red;' 
                 END AS IURAN_COLOR,
                 (SELECT CASE

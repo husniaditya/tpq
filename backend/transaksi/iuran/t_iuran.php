@@ -5,7 +5,7 @@ $anggota = "SELECT * FROM t_anggota WHERE STATUS = 1 ORDER BY NAMA_ANGGOTA";
 $getAnggota = GetQuery2($anggota, []);
 $rowAnggota = $getAnggota->fetchAll(PDO::FETCH_ASSOC);
 
-$query = "SELECT i.*,a.NAMA_ANGGOTA, t.NAMA_TINGKATAN,FORMAT(REPLACE(i.JUMLAH,'-',''), 0) FJUMLAH,
+$query = "SELECT i.*,a.NAMA_ANGGOTA, t.NAMA_TINGKATAN,FORMAT(REPLACE(i.JUMLAH,'-',''), 0) FJUMLAH,DATE_FORMAT(i.TGL_IURAN, '%Y-%m') as TGL_IURAN,
     -- Subquery to get the cumulative saldo
     (SELECT CASE
         WHEN SUM(i2.JUMLAH) < 0 THEN CONCAT('(', FORMAT(ABS(SUM(i2.JUMLAH)), 0), ')')
@@ -20,11 +20,11 @@ $query = "SELECT i.*,a.NAMA_ANGGOTA, t.NAMA_TINGKATAN,FORMAT(REPLACE(i.JUMLAH,'-
         ELSE 'Kredit' 
     END AS IURAN_DK,
     CASE
-        WHEN i.DK = 'D' THEN 'color: green;'
+        WHEN i.DK = '' THEN 'color: green;'
         ELSE 'color: red;' 
     END AS IURAN_COLOR
 FROM t_iuran i
-LEFT JOIN t_anggota a ON a.ID_ANGGOTA = i.ID_ANGGOTA
+LEFT JOIN t_anggota a ON a.ID_ANGGOTA = i.ID_ANGGOTA AND a.STATUS = 1
 LEFT JOIN m_tingkatan t ON a.ID_TINGKATAN = t.ID_TINGKATAN
 WHERE i.STATUS = 1";
 // Execute the query without parameters
@@ -37,7 +37,7 @@ if (isset($_GET['method'])) {
             $ID_IURAN = createKode("t_iuran", "ID_IURAN", "IUR", 3);
             $ID_ANGGOTA = $_POST['ID_ANGGOTA'];
             $TGL_IURAN = $_POST['TGL_IURAN'];
-            $DK = $_POST['DK'];
+            $DK = "";
             $JUMLAH = $_POST['JUMLAH'];
             $KETERANGAN = $_POST['KETERANGAN'];
 
@@ -90,7 +90,7 @@ if (isset($_GET['method'])) {
         if (isset($_POST['simpan'])) {
             $ID_ANGGOTA = $_POST['ID_ANGGOTA'];
             $TGL_IURAN = $_POST['TGL_IURAN'];
-            $DK = $_POST['DK'];
+            $DK = "";
             $JUMLAH = $_POST['JUMLAH'];
             $KETERANGAN = $_POST['KETERANGAN'];
             

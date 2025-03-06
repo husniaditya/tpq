@@ -44,8 +44,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="tingkatan.php" aria-label="Master Tingkatan">
-                        <span class="mx-2"><i class="fa  fa-bar-chart-o"></i> Tingkatan</span>
+                    <a href="tingkatan.php" aria-label="Master Pendidikan">
+                        <span class="mx-2"><i class="fa  fa-bar-chart-o"></i> Pendidikan</span>
                     </a>
                 </li>
             </ul>

@@ -7,10 +7,10 @@
         <form role="form" action="" method="post">
             <div class="row">
                 <div class="mb-3 col-md-3 col-12">
-                    <label class="col-form-label">Tingkatan</label>
+                    <label class="col-form-label">Pendidikan</label>
                     <fieldset class="form-icon-group left-icon position-relative"> 
                         <select class="form-select array-select form-control" aria-label="example" name="ID_TINGKATAN" required>
-                            <option value="">Pilih Jenis Tingkatan...</option>
+                            <option value="">Pilih Jenis Pendidikan...</option>
                             <?php
                             foreach ($rowTingkatan as $dataTingkatan) {
                                 extract($dataTingkatan);
@@ -23,10 +23,8 @@
                     </fieldset>
                 </div>
                 <div class="mb-1 col-md-3 col-12">
-                    <label class="col-form-label">Tanggal Bergabung</label>
-                    <fieldset class="form-icon-group left-icon position-relative">
-                        <input type="text" name="TANGGAL_BERGABUNG" class="form-control f-basic flatpickr-input" placeholder="Pilih Tanggal.." value="<?= $TANGGAL_BERGABUNG; ?>" required>
-                    </fieldset>
+                    <label class="col-form-label">Tanggal Pendaftaran</label>
+                    <input type="text" name="TANGGAL_BERGABUNG" class="form-control" value="<?= $TANGGAL_BERGABUNG; ?>" readonly>
                 </div>
                 <div class="mb-3 col-md-3 col-12">
                     <label class="col-form-label">Status Santri</label>

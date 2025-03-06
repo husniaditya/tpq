@@ -1,13 +1,13 @@
 
 <div class="card mb-4">
     <div class="card-header py-3 bg-transparent border-bottom-0">
-        <h4 class="card-title mb-0"><strong>Tambah Data Tingkatan</strong></h4>
+        <h4 class="card-title mb-0"><strong>Tambah Data Pendidikan</strong></h4>
     </div>
     <div class="card-body card-main-two">
         <form role="form" action="" method="post">
             <div class="row">  
                 <div class="mb-3 col-md-6 col-12">
-                    <label class="col-form-label">Nama Tingkatan</label>
+                    <label class="col-form-label">Nama Pendidikan</label>
                     <fieldset class="form-icon-group left-icon position-relative"> 
                         <input type="text" name="NAMA_TINGKATAN" class="form-control" value="" required>
                     </fieldset>

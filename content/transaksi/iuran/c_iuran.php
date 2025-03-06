@@ -14,10 +14,9 @@
                     <tr>
                         <th></th>
                         <th>ID Iuran</th>
-                        <th>Tanggal</th>
+                        <th>Periode</th>
                         <th>Nama Santri</th>
-                        <th>Tingkatan</th>
-                        <th>D/K</th>
+                        <th>Pendidikan</th>
                         <th>Jumlah (Rp)</th>
                         <th>Saldo (Rp)</th>
                         <th>Keterangan</th>
@@ -48,7 +47,6 @@
                             <td><?= $TGL_IURAN; ?></td>
                             <td><?= $NAMA_ANGGOTA; ?></td>
                             <td><?= $NAMA_TINGKATAN; ?></td>
-                            <td><?= $IURAN_DK; ?></td>
                             <td align="right" style="<?= $IURAN_COLOR; ?>"><?= $FJUMLAH; ?></td>
                             <td align="right"><?= $FSALDO; ?></td>
                             <td><?= $KETERANGAN; ?></td>

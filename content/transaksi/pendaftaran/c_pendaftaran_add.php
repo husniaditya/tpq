@@ -13,10 +13,10 @@
                     </fieldset>
                 </div>
                 <div class="mb-3 col-md-3 col-12">
-                    <label class="col-form-label">Tingkatan</label>
+                    <label class="col-form-label">Pendidikan</label>
                     <fieldset class="form-icon-group left-icon position-relative"> 
                         <select class="form-select array-select form-control" aria-label="example" name="ID_TINGKATAN" required>
-                            <option value="">Pilih Jenis Tingkatan...</option>
+                            <option value="">Pilih Jenis Pendidikan...</option>
                             <?php
                             foreach ($rowTingkatan as $dataTingkatan) {
                                 extract($dataTingkatan);
@@ -26,12 +26,6 @@
                             }
                             ?>
                         </select>
-                    </fieldset>
-                </div>
-                <div class="mb-1 col-md-3 col-12">
-                    <label class="col-form-label">Tanggal Bergabung</label>
-                    <fieldset class="form-icon-group left-icon position-relative">
-                        <input type="text" name="TANGGAL_BERGABUNG" class="form-control f-basic flatpickr-input" placeholder="Pilih Tanggal.." value="" required>
                     </fieldset>
                 </div>
                 <div class="mb-3 col-md-3 col-12">
@@ -79,7 +73,7 @@
                 <div class="mb-1 col-md-3 col-12">
                     <label class="col-form-label">Handphone</label>
                     <fieldset class="form-icon-group left-icon position-relative">
-                        <input type="text" name="HANDPHONE" class="form-control" value="" required>
+                        <input type="text" name="HANDPHONE" id="phoneInput" class="form-control" value="" required>
                     </fieldset>
                 </div>
                 <div class="mb-3 col-md-6 col-12">
@@ -98,4 +92,10 @@
         </form>
     </div>
 </div>
+
+<script>
+  document.getElementById("phoneInput").addEventListener("input", function (e) {
+    this.value = this.value.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+  });
+</script>
 

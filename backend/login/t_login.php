@@ -1,6 +1,5 @@
 <?php
 
-
 $USERNAME="";
 $PASSWORD="";
 

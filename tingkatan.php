@@ -54,7 +54,7 @@ include 'backend/master/tingkatan/t_tingkatan.php';
 				<ol class="breadcrumb mb-0 bg-transparent">
 					<li class="breadcrumb-item"><a href="dashboard.php" title="dashboard">Dashboard</a></li>
 					<li class="breadcrumb-item" aria-current="page" title="master">Master</li>
-					<li class="breadcrumb-item active" aria-current="page" title="tingkatan">Tingkatan</li>
+					<li class="breadcrumb-item active" aria-current="page" title="tingkatan">Pendidikan</li>
 				</ol>
 			</div>
 

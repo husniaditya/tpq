@@ -18,8 +18,8 @@
                         <th>TTL</th>
                         <th>Jenis Kelamin</th>
                         <th>Orang Tua</th>
-                        <th>Tingkatan</th>
-                        <th>Tanggal Bergabung</th>
+                        <th>Pendidikan</th>
+                        <th>Tanggal Pendaftaran</th>
                         <th>Tanggal Keluar</th>
                         <th>Status</th>
                         <th>Input Oleh</th>

@@ -20,14 +20,6 @@
                     </fieldset>
                 </div>
                 <div class="mb-4 col-md-3 col-12">
-                    <label class="col-form-label">Jenis Iuran</label>
-                    <select class="form-select array-select form-control" aria-label="example" name="DK">
-                        <option value="">Pilih Jenis Iuran...</option>
-                        <option value="D" <?php if ($DK == 'D') echo 'selected'; ?>>Debit</option>
-                        <option value="K" <?php if ($DK == 'K') echo 'selected'; ?>>Kredit</option>
-                    </select>
-                </div>
-                <div class="mb-4 col-md-3 col-12">
                     <label class="col-form-label">Tanggal Iuran</label>
                     <fieldset class="form-icon-group left-icon position-relative">
                         <input type="text" name="TGL_IURAN" class="form-control f-basic flatpickr-input" placeholder="Pilih Tanggal.." value="<?= $TGL_IURAN; ?>">
@@ -48,10 +40,9 @@
                 <thead>
                     <tr>
                         <th>ID Iuran</th>
-                        <th>Tanggal</th>
+                        <th>Periode</th>
                         <th>Nama Santri</th>
-                        <th>Tingkatan</th>
-                        <th>D/K</th>
+                        <th>Pendidikan</th>
                         <th>Jumlah (Rp)</th>
                         <th>Saldo (Rp)</th>
                         <th>Keterangan</th>
@@ -67,7 +58,6 @@
                             <td><?= $TGL_IURAN; ?></td>
                             <td><?= $NAMA_ANGGOTA; ?></td>
                             <td><?= $NAMA_TINGKATAN; ?></td>
-                            <td><?= $IURAN_DK; ?></td>
                             <td align="right" style="<?= $IURAN_COLOR; ?>"><?= $FJUMLAH; ?></td>
                             <td align="right"><?= $FSALDO; ?></td>
                             <td><?= $KETERANGAN; ?></td>
@@ -78,7 +68,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="6" style="text-align: right;"><strong>Total Saldo:</strong></td>
+                        <td colspan="5" style="text-align: right;"><strong>Total Saldo:</strong></td>
                         <td style="text-align: right;"><strong>Rp <?= $TOTAL_SALDO; ?></strong></td>
                         <td></td>
                     </tr>

@@ -2,19 +2,19 @@
 
 <div class="card mb-4">
     <div class="card-header py-3 bg-transparent border-bottom-0">
-        <h4 class="card-title mb-0"><strong>Master Tingkatan</strong></h4>
+        <h4 class="card-title mb-0"><strong>Master Pendidikan</strong></h4>
     </div>
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <a data-toggle="modal" title="Add this item" class="btn btn-outline-primary" href="tingkatan_add.php?method=add"><i class="fa fa-plus"></i> Tambah Data Tingkatan</a>
+            <a data-toggle="modal" title="Add this item" class="btn btn-outline-primary" href="tingkatan_add.php?method=add"><i class="fa fa-plus"></i> Tambah Data Pendidikan</a>
         </div>
         <div class="table-responsive">
             <table class="table table-striped table-bordered" id="tingkatan-table">
                 <thead>
                     <tr>
                         <th></th>
-                        <th>ID Tingkatan</th>
-                        <th>Nama Tingkatan</th>
+                        <th>ID Pendidikan</th>
+                        <th>Nama Pendidikan</th>
                         <th>Deskripsi</th>
                         <th>Status</th>
                         <th>Input Oleh</th>

@@ -24,7 +24,7 @@ if (isset($_POST['cari'])) {
 
     $query = "SELECT a.*,CONCAT(a.TEMPAT_LAHIR,', ',DATE_FORMAT(a.TANGGAL_LAHIR, '%d %M %Y')) TTL,CASE WHEN a.STATUS_ANGGOTA = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END STATUS_ANGGOTA_DESK,t.NAMA_TINGKATAN,DATE_FORMAT(a.INPUT_TANGGAL, '%d %M %Y') INPUT_TANGGAL FROM t_anggota a
     LEFT JOIN m_tingkatan t ON a.ID_TINGKATAN = t.ID_TINGKATAN 
-    WHERE a.NAMA_ANGGOTA LIKE :NAMA_ANGGOTA AND a.ID_TINGKATAN LIKE :ID_TINGKATAN AND a.JK LIKE :JK AND a.ORANG_TUA LIKE :ORANG_TUA AND a.HANDPHONE LIKE :HANDPHONE AND a.ALAMAT LIKE :ALAMAT AND a.STATUS_ANGGOTA = 1 AND a.STATUS = 1";
+    WHERE a.NAMA_ANGGOTA LIKE :NAMA_ANGGOTA AND a.ID_TINGKATAN LIKE :ID_TINGKATAN AND a.JK LIKE :JK AND a.ORANG_TUA LIKE :ORANG_TUA AND a.HANDPHONE LIKE :HANDPHONE AND a.ALAMAT LIKE :ALAMAT";
     // Set up the parameters array with named placeholders
     $params = array(
         ':NAMA_ANGGOTA' => '%' . $NAMA_ANGGOTA . '%',
@@ -40,8 +40,7 @@ if (isset($_POST['cari'])) {
 
 } else {
     $query = "SELECT a.*,CONCAT(a.TEMPAT_LAHIR,', ',DATE_FORMAT(a.TANGGAL_LAHIR, '%d %M %Y')) TTL,CASE WHEN a.STATUS_ANGGOTA = 1 THEN 'Aktif' ELSE 'Tidak Aktif' END STATUS_ANGGOTA_DESK,t.NAMA_TINGKATAN,DATE_FORMAT(a.INPUT_TANGGAL, '%d %M %Y') INPUT_TANGGAL FROM t_anggota a
-    LEFT JOIN m_tingkatan t ON a.ID_TINGKATAN = t.ID_TINGKATAN 
-    WHERE a.STATUS_ANGGOTA = 1 AND a.STATUS = 1";
+    LEFT JOIN m_tingkatan t ON a.ID_TINGKATAN = t.ID_TINGKATAN";
     // Execute the query without parameters
     $getAnggota =  GetQuery2($query, []);
     $rowAnggota = $getAnggota->fetchAll(PDO::FETCH_ASSOC);

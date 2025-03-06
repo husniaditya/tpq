@@ -14,10 +14,10 @@
                     </fieldset>
                 </div>
                 <div class="mb-4 col-md-4 col-12">
-                    <label class="col-form-label">Tingkatan</label>
+                    <label class="col-form-label">Pendidikan</label>
                     <fieldset class="form-icon-group left-icon position-relative"> 
                         <select class="form-select array-select form-control" aria-label="example" name="ID_TINGKATAN">
-                            <option value="">Pilih Jenis Tingkatan...</option>
+                            <option value="">Pilih Jenis Pendidikan...</option>
                             <?php
                             foreach ($rowTingkatan as $dataTingkatan) {
                                 extract($dataTingkatan);
@@ -71,14 +71,14 @@
             <table class="table table-striped table-bordered" id="santri-table">
                 <thead>
                     <tr>
-                        <th>ID Santri</th>
-                        <th>Tingkatan</th>
+                        <th>Pendidikan</th>
                         <th>Nama Santri</th>
                         <th>TTL</th>
                         <th>Jenis Kelamin</th>
                         <th>Orang Tua</th>
-                        <th>Tanggal Bergabung</th>
+                        <th>Tanggal Pendaftaran</th>
                         <th>Tanggal Keluar</th>
+                        <th>Tanggal Pendidikan</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -88,7 +88,6 @@
                         extract($dataAnggota);
                         ?>
                         <tr>
-                            <td><?= $ID_ANGGOTA; ?></td>
                             <td><?= $NAMA_TINGKATAN; ?></td>
                             <td><?= $NAMA_ANGGOTA; ?></td>
                             <td><?= $TTL; ?></td>
@@ -96,6 +95,7 @@
                             <td><?= $ORANG_TUA; ?></td>
                             <td><?= $TANGGAL_BERGABUNG; ?></td>
                             <td><?= $TANGGAL_KELUAR; ?></td>
+                            <td><?= $TANGGAL_TINGKATAN; ?></td>
                             <td><?= $STATUS_ANGGOTA_DESK; ?></td>
                         </tr>
                         <?php

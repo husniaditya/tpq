@@ -30,14 +30,6 @@
                         <input type="text" name="TGL_IURAN" class="form-control f-basic flatpickr-input" placeholder="Pilih Tanggal.." value="<?= $TGL_IURAN; ?>" required>
                     </fieldset>
                 </div>
-                <div class="mb-3 col-md-3 col-12">
-                    <label class="col-form-label">Jenis Iuran</label>
-                    <select class="form-select array-select form-control" aria-label="example" name="DK" required>
-                        <option value="">Pilih Jenis Iuran...</option>
-                        <option value="D" <?php if ($DK == 'D') echo 'selected'; ?>>Debet</option>
-                        <option value="K" <?php if ($DK == 'K') echo 'selected'; ?>>Kredit</option>
-                    </select>
-                </div>
                 <div class="mb-1 col-md-3 col-12">
                     <label class="col-form-label">Jumlah</label>
                     <fieldset class="form-icon-group left-icon position-relative">

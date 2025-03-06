@@ -54,8 +54,8 @@ include 'backend/master/tingkatan/t_tingkatan.php';
 				<ol class="breadcrumb mb-0 bg-transparent">
 					<li class="breadcrumb-item"><a href="dashboard.php" title="dashboard">Dashboard</a></li>
 					<li class="breadcrumb-item" aria-current="page" title="master">Master</li>
-					<li class="breadcrumb-item"><a href="tingkatan.php" title="tingkatan">Tingkatan</a></li>
-					<li class="breadcrumb-item active" aria-current="page" title="tambah data tingkatan">Tambah Data Tingkatan</li>
+					<li class="breadcrumb-item"><a href="tingkatan.php" title="tingkatan">Pendidikan</a></li>
+					<li class="breadcrumb-item active" aria-current="page" title="tambah data tingkatan">Tambah Data Pendidikan</li>
 				</ol>
 			</div>
 
